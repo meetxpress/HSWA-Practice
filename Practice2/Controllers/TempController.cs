@@ -27,6 +27,7 @@ namespace Practice2.Controllers {
             return db.Account_Holder.ToList();
         }
 
+        [AuthoFilter2]
         public Account_Holder GetAccountDetails(int accNo) {
             return db.Account_Holder.Find(accNo);
         }
