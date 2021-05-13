@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DbInternalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account_Holder">
+          <Key>
+            <PropertyRef Name="acno" />
+          </Key>
+          <Property Name="acno" Type="int" Nullable="false" />
+          <Property Name="acname" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="actype" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="acbranch" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="acamount" Type="int" Nullable="false" />
+          <Property Name="acpin" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bank_Admin">
+          <Key>
+            <PropertyRef Name="adminId" />
+          </Key>
+          <Property Name="adminId" Type="int" Nullable="false" />
+          <Property Name="adminName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adminPass" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DbInternalModelStoreContainer">
+          <EntitySet Name="Account_Holder" EntityType="Self.Account_Holder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Bank_Admin" EntityType="Self.Bank_Admin" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbInternalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account_Holder">
+          <Key>
+            <PropertyRef Name="acno" />
+          </Key>
+          <Property Name="acno" Type="Int32" Nullable="false" />
+          <Property Name="acname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="actype" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="acbranch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="acamount" Type="Int32" Nullable="false" />
+          <Property Name="acpin" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Bank_Admin">
+          <Key>
+            <PropertyRef Name="adminId" />
+          </Key>
+          <Property Name="adminId" Type="Int32" Nullable="false" />
+          <Property Name="adminName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adminPass" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DbInternalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Account_Holder" EntityType="Self.Account_Holder" />
+          <EntitySet Name="Bank_Admin" EntityType="Self.Bank_Admin" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbInternalModelStoreContainer" CdmEntityContainer="DbInternalEntities">
+          <EntitySetMapping Name="Account_Holder">
+            <EntityTypeMapping TypeName="DbInternalModel.Account_Holder">
+              <MappingFragment StoreEntitySet="Account_Holder">
+                <ScalarProperty Name="acno" ColumnName="acno" />
+                <ScalarProperty Name="acname" ColumnName="acname" />
+                <ScalarProperty Name="actype" ColumnName="actype" />
+                <ScalarProperty Name="acbranch" ColumnName="acbranch" />
+                <ScalarProperty Name="acamount" ColumnName="acamount" />
+                <ScalarProperty Name="acpin" ColumnName="acpin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bank_Admin">
+            <EntityTypeMapping TypeName="DbInternalModel.Bank_Admin">
+              <MappingFragment StoreEntitySet="Bank_Admin">
+                <ScalarProperty Name="adminId" ColumnName="adminId" />
+                <ScalarProperty Name="adminName" ColumnName="adminName" />
+                <ScalarProperty Name="adminPass" ColumnName="adminPass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
