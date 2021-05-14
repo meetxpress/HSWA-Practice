@@ -26,13 +26,14 @@ namespace Practice2.Controllers {
         public List<Account_Holder> GetAccountDetails() {            
             return db.Account_Holder.ToList();
         }
-
-        [AuthoFilter2]
+        
         public Account_Holder GetAccountDetails(int accNo) {
             return db.Account_Holder.Find(accNo);
         }
 
+        //[AuthoFilter2]
         public HttpResponseMessage GetAccountDetails(String accType) {
+            //return db.Account_Holder.Where(a => a.actype == accType).ToList();
             List<Account_Holder> acc = db.Account_Holder.ToList();
             List<Account_Holder> toAcc = new List<Account_Holder>();
             foreach(Account_Holder a in acc) {             
@@ -48,7 +49,7 @@ namespace Practice2.Controllers {
                     if (a.actype == accType) {
                         toAcc.Add(a);
                     }
-                }                 
+                }
             }
             if (toAcc.Count == 0) {
                 throw new NotValidAccountTypeException();

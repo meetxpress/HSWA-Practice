@@ -35,7 +35,7 @@ namespace Practice2.Filters {
                     Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(u2.adminName), null);
                 } else {
                     if(u2name == Accno) {
-                        Account_Holder u2_2 = db.Account_Holder.Where(uu2 => uu2.acname == u2name && uu2.acpin + "" == u2pass).FirstOrDefault();
+                        Account_Holder u2_2 = db.Account_Holder.Where(uu2 => uu2.acname== u2name && uu2.acpin + "" == u2pass).FirstOrDefault();
                         if(u2_2 != null) {
                             Thread.CurrentPrincipal = new GenericPrincipal(new GenericIdentity(u2_2.acname), null);
                         }
