@@ -9,4 +9,6 @@ Functionalities Covered
   - Exception Handling
 - Filter
   - Authorization Filter
+    - For Single User
+    - For Any User
   - Custom Exception Filter/Class
